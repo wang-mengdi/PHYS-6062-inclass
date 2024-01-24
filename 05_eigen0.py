@@ -37,12 +37,13 @@ def solve(E):
 # Main program to find the energy using the secant method
 E1 = 0.0
 E2 = e
-psi2 = solve(E1)
+psi1,psi2 = solve(E1),solve(E2)
 
 target = e/1000
 while abs(E1-E2)>target:
-#
-# To be completed in class
-#
+    E3 = E2 - psi2 * (E2 - E1) / (psi2 - psi1)
+    E1, E2 = E2, E3
+    psi1, psi2 = psi2, solve(E3)
+    print(E1, E2)
 
 print("E = %.6f eV" % (E2/e))
