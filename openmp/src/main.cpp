@@ -12,6 +12,8 @@ void main() {
     double runtime;
     const long N = 1000000000L;
 
+    omp_set_num_threads(4);
+
   
 #ifdef _OPENMP
     #pragma omp parallel
